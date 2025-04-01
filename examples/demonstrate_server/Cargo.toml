@@ -1,0 +1,10 @@
+[package]
+name = "demonstrate_agents"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Necessário para rodar e depender da sua lib local (ou se estiver publicado no crates.io).
+mcprs = { path = "../../" }
+tokio = { version = "1", features = ["full"] }
+serde_json = "1.0"

@@ -1,0 +1,27 @@
+[package]
+name = "mcprs"
+version = "0.1.0"
+edition = "2021"
+description = "Modelo de lib para um protocolo de agentes de IA (MCP)."
+license = "MIT"
+
+[dependencies]
+axum = "0.6"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = "0.3"
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
+async-trait = "0.1"
+thiserror = "1.0"
+mockall = "0.11"                                                  # Novo: Para geração de mocks
+futures = "0.3"                                                   # Novo: Para trabalhar com futures
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full", "test-util"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11", features = ["json", "rustls-tls"] }
+mockall = "0.11"
+http = "0.2"
