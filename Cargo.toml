@@ -4,12 +4,12 @@ name = "mcprs"
 version = "0.1.0"
 edition = "2021"
 description = "Model Context Protocol para Rust - Uma biblioteca unificada para comunicação com diferentes LLMs e APIs de IA"
-authors = ["Your Name <your.email@example.com>"]
+authors = ["Kauê Pereira <kauefontes@outlook.com>"]
 license = "MIT"
-repository = "https://github.com/yourusername/mcprs"
+repository = "https://github.com/kauefontes/mcprs"
 documentation = "https://docs.rs/mcprs"
 readme = "README.md"
-keywords = ["ai", "llm", "openai", "deepseek", "nlp"]
+keywords = ["ai", "llm", "openai", "deepseek", "nlp", "mcp"]
 categories = ["api-bindings", "web-programming", "asynchronous"]
 
 [dependencies]
