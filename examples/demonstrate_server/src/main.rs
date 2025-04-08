@@ -2,7 +2,7 @@ use mcprs::agent::{AgentRegistry, DummyAgent, MCPMessage};
 use mcprs::agent_deepseek::create_deepseek_agent;
 use mcprs::agent_openai::create_openai_agent;
 use mcprs::client::{create_mcp_message_for_agent, send_mcp_request};
-use mcprs::server::run_http_server;
+use mcprs::server::run_http_server; // Mantém função original para compatibilidade
 use serde_json::json;
 use std::net::SocketAddr;
 use tokio::task;
@@ -18,11 +18,11 @@ async fn main() {
     }));
 
     // OpenAIAgent (chaves via env ou definidas manualmente)
-    let openai_agent = create_openai_agent();
+    let openai_agent = create_openai_agent(None);
     registry.register_agent(Box::new(openai_agent));
 
     // DeepSeekAgent
-    let deepseek_agent = create_deepseek_agent();
+    let deepseek_agent = create_deepseek_agent(None);
     registry.register_agent(Box::new(deepseek_agent));
 
     // Endereço do servidor
