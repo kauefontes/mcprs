@@ -241,23 +241,21 @@ mod tests {
     #[tokio::test]
     async fn test_mock_http_client_factory() {
         let mut mock_factory = MockHttpClientFactory::new();
-        let mut mock_client = MockHttpClient::new();
 
-        // Configurar cliente mock
-        mock_client.expect_get().returning(|_, _| {
-            Ok(reqwest::Response::from(
-                http::Response::builder()
-                    .status(200)
-                    .body("Factory Test")
-                    .unwrap(),
-            ))
+        // Configurar a fábrica para retornar um mock configurado
+        mock_factory.expect_create_client().times(1).returning(|| {
+            // Criamos e configuramos um novo mock dentro do closure
+            let mut new_mock = MockHttpClient::new();
+            new_mock.expect_get().returning(|_, _| {
+                Ok(reqwest::Response::from(
+                    http::Response::builder()
+                        .status(200)
+                        .body("Factory Test")
+                        .unwrap(),
+                ))
+            });
+            Box::new(new_mock)
         });
-
-        // Configurar fábrica para retornar o cliente mock
-        mock_factory
-            .expect_create_client()
-            .times(1)
-            .returning(move || Box::new(MockHttpClient::new()));
 
         // Criar cliente via fábrica
         let client = mock_factory.create_client();
