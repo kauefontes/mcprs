@@ -1,0 +1,9 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"  # Corrigido de 2024 para 2021
+
+[dependencies]
+mcprs = { path = "../../" }
+tokio = { version = "1", features = ["full"] }
+serde_json = "1.0"
